@@ -1,0 +1,12 @@
+# Lista de dependencias del proyecto
+# Nota: La versión de TensorFlow es crucial. Para sistemas Windows 11 modernos, Python 3.9 o 3.10 son las mejores opciones para TensorFlow 2.x.
+# Si puedes permitirte usar una versión más reciente de TensorFlow, la versión 2.13 o superior ya soporta oficialmente Python 3.11.
+
+#tensorflow==2.10.0  # Usar una versión compatible con Python 3.9/3.10
+tensorflow>=2.13.0   # O simplemente 'tensorflow' para la última versión
+keras
+opencv-python
+numpy
+pandas
+matplotlib
+scikit-learn # Útil para métricas de evaluación

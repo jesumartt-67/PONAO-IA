@@ -1,0 +1,36 @@
+# ==========================================================
+# 1. DEPENDENCIAS Y ENTORNO VIRTUAL (CRUCIALES PARA EXCLUIR)
+# ==========================================================
+# Excluye la carpeta del entorno virtual de Python
+# Le indica a Git que ignore cualquier directorio (y su contenido) llamado venv en cualquier nivel del proyecto.
+# Le indica a Git que ignore cualquier directorio (y su contenido) llamado .venv (con el punto inicial).
+venv/
+.venv/
+
+# Archivos compilados, caché y de ambiente
+__pycache__/
+*.pyc
+*.pyd
+*.so
+
+# ==========================================================
+# 2. ARCHIVOS DE SISTEMA OPERATIVO Y GLOBALES
+# ==========================================================
+# macOS / OS X
+.DS_Store
+
+# Windows
+Thumbs.db
+
+# ==========================================================
+# 3. ARCHIVOS DE EDITOR/IDE (VS CODE)
+# ==========================================================
+# Directorio para la configuración de VS Code.
+# Se recomienda subir solo la configuración de workspace (settings.json),
+# pero si quieres ignorar todo, puedes usar: .vscode/
+.vscode/
+
+# Ignorar logs, builds y resultados de pruebas
+/build
+/dist
+/logs
