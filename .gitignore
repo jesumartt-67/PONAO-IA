@@ -1,0 +1,9 @@
+# Archivos y carpetas del entorno de trabajo
+.vscode/
+__pycache__/
+
+# Entorno virtual de Python
+venv-dArg/
+
+# Archivos de datos generados localmente
+DataAugmentation/data/
