@@ -34,14 +34,17 @@ class YoloAugmentor:
             A.Rotate(limit=(-30, 30), p=0.8, border_mode=cv2.BORDER_CONSTANT),
 
             # 5f) Desplazamiento horizontal/vertical (usando Affine)
-            A.Affine(shear=None, scale=None, translate_percent={'x': (-0.15, 0.15), 'y': (-0.15, 0.15)}, p=0.8, mode=cv2.BORDER_CONSTANT),
+            A.Affine(translate_percent={'x': (-0.15, 0.15), 'y': (-0.15, 0.15)}, p=0.8, border_mode=cv2.BORDER_CONSTANT),
+            #A.Affine(translate_percent={'x': (-0.15, 0.15), 'y': (-0.15, 0.15)}, p=0.8, mode=cv2.BORDER_CONSTANT),
+            #A.Affine(shear=None, scale=None, translate_percent={'x': (-0.15, 0.15), 'y': (-0.15, 0.15)}, p=0.8, mode=cv2.BORDER_CONSTANT),
 
             # 5b) Escalado (0.8-1.2x)
             # Nota: Scale lo hace Affine, pero usaremos RandomScaleAndCrop para más variación y zoom (5e)
             A.RandomScale(scale_limit=(-0.2, 0.2), p=0.7), # Escala entre 0.8x y 1.2x
 
             # 5e) Zoom (crop y resize) - Se logra con RandomSizedCrop o combinado con RandomScale
-            A.RandomSizedCrop(min_max_height=(int(700), int(1024)), height=1024, width=1024, p=0.5, interpolation=cv2.INTER_LINEAR),
+            A.RandomSizedCrop(min_max_height=(int(700), int(1024)), size=(1024, 1024), p=0.5, interpolation=cv2.INTER_LINEAR),
+            #A.RandomSizedCrop(min_max_height=(int(700), int(1024)), height=1024, width=1024, p=0.5, interpolation=cv2.INTER_LINEAR),
             
             # 5c) Cambios de brillo y contraste
             A.RandomBrightnessContrast(brightness_limit=0.2, contrast_limit=0.2, p=0.7),
