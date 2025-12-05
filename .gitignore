@@ -1,9 +1,43 @@
-# Archivos y carpetas del entorno de trabajo
-.vscode/
+# Archivos y directorios comunes de Python y VS Code
+# venv/
+# Ya tiene venv en su archivo, pero esta es la forma genérica
 __pycache__/
+*.ipynb_checkpoints
+.vscode/
 
-# Entorno virtual de Python
-venv-dArg/
+# Entornos virtuales específicos de ramas
+# Usamos el patrón para ser más robustos
+venv-*/
+DataAugmentation/venv-dArg/
+DetectarObjYoloV8/venv-ObjY/
 
-# Archivos de datos generados localmente
+# Archivos de macOS (aunque usa Windows, es buena práctica)
+.DS_Store
+
+# Directorios de salida de entrenamiento de YOLOv8
+# Esto es CRUCIAL, ya que contiene logs y los pesos del modelo
+runs/
+
+# Directorios de modelos y artefactos (incluyendo YOLOv8)
+# Se ignoran pesos específicos y directorios de modelos
+*.pt
+*.pth
+*.h5
+*.onnx
+
+# Datos y modelos generados localmente en las ramas
+# Esto evita subir datasets grandes y archivos de caché/log.
+
+# Rama DataAugmentation
 DataAugmentation/data/
+DataAugmentation/logs/
+
+# Rama DetectarObjYoloV8
+DetectarObjYoloV8/data/raw/
+DetectarObjYoloV8/data/images/
+DetectarObjYoloV8/data/labels/
+DetectarObjYoloV8/models/*.pt
+DetectarObjYoloV8/models/weights/  # Ignorar toda la carpeta de pesos
+
+# Archivos de configuración dinámicos
+config/config.yaml # Si contiene credenciales o rutas locales sensibles
