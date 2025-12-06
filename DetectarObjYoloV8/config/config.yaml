@@ -1,0 +1,75 @@
+# ==============================================================================
+# CONFIGURACIÓN CENTRALIZADA DEL PROYECTO
+# Archivo: config/config.yaml
+# Usado por la clase ConfigManager
+# ==============================================================================
+
+general:
+  # Nombre descriptivo del proyecto
+  project_name: 'DeteccionMonedasColombianas'
+  # Versión del proyecto (para seguimiento)
+  version: '1.0.0'
+  # Descripción breve
+  description: 'Sistema de detección de billetes y monedas colombianas usando YOLOv8.'
+
+# ==============================================================================
+# RUTAS DE ARCHIVOS Y DIRECTORIOS
+# Las rutas son relativas a la raíz del proyecto (DetectarObjYoloV8/)
+# ==============================================================================
+paths:
+  # Ruta donde se generará el archivo YAML necesario para el entrenamiento de YOLOv8
+  data_config: 'data/config/dataset.yaml' 
+
+  # Directorio donde se guardarán los pesos del modelo entrenado (ej: best.pt)
+  weights_output: 'models/weights' 
+
+  # Archivo de clases (debe contener el listado de clases, una por línea)
+  class_names_file: 'data/classes.txt'
+  
+  # Directorios de datos (usados por DatasetManager)
+  data_root: 'data'
+  images_train: 'data/images/train'
+  images_val: 'data/images/val'
+  labels_train: 'data/labels/train'
+  labels_val: 'data/labels/val'
+
+# ==============================================================================
+# PARÁMETROS DE ENTRENAMIENTO DE YOLOv8
+# ==============================================================================
+yolov8:
+  # Modelo base a usar: n (nano), s (small), m (medium), l (large), x (extra large)
+  # 'n' es el más rápido, 'x' el más preciso (y lento). Se recomienda 's' o 'm'.
+  model_size: 's' 
+  
+  # Número de épocas de entrenamiento
+  epochs: 150
+  
+  # Tamaño de la imagen de entrada (debe ser un múltiplo de 32, 640x640 es estándar)
+  imgsz: 640 
+  
+  # Tamaño del lote (batch size). Reducir si hay error de memoria (GPU VRAM).
+  batch: 16 
+  
+  # Tasa de aprendizaje inicial
+  lr0: 0.01 
+  
+  # Nivel de confianza mínimo para mostrar una detección (inferencia)
+  confidence_threshold: 0.50
+
+# ==============================================================================
+# PARÁMETROS DE DETECCIÓN EN TIEMPO REAL (RealTimeDetector)
+# ==============================================================================
+realtime:
+  model_path: 'models/weights/colombian_currency_detector2/weights/best.pt'
+  
+  # ID de la cámara web (0 es generalmente la cámara integrada/principal)
+  webcam_id: 0
+  
+  # Retraso en milisegundos para cv2.waitKey (1 ms para tiempo real)
+  delay_ms: 1 
+  
+  # Color de los bounding boxes (BGR) - Rojo en este caso
+  box_color: [0, 0, 255] 
+  
+  # Grosor de la línea del bounding box
+  box_thickness: 2

@@ -1,0 +1,16 @@
+# dataset.yaml (Versión final corregida)
+names:
+- billete_10000
+- billete_20000
+- billete_50000
+- billete_100000
+- moneda_100
+- moneda_200
+- moneda_500
+- moneda_1000
+nc: 8
+path: E:\Proyectos-IA\PONAO-IA\DetectarObjYoloV8\data
+train: images/train
+val: images/val
+labels_train: labels/train
+labels_val: labels/val

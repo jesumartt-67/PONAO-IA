@@ -1,0 +1,9 @@
+# Archivo requirements.txt Instala las dependencias necesarias
+ultralytics
+opencv-python
+numpy
+pyyaml
+Pillow  # <-- CORRECCIÓN: Esencial para gestión y manipulación de imágenes.
+# Dependencias de PyTorch para YOLOv8 y Faster R-CNN
+torch
+torchvision

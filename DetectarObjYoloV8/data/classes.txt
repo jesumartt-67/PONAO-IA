@@ -1,0 +1,9 @@
+
+billete_10000
+billete_20000
+billete_50000
+billete_100000
+moneda_100
+moneda_200
+moneda_500
+moneda_1000
